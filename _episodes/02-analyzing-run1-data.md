@@ -1,13 +1,14 @@
 ---
 title: "Analyzing Run 1 data"
 teaching: 10
-exercises: 30
+exercises: 50
 questions:
-- "TOBEDONE"
+- "How can I analyze larger ROOT files?"
 objectives:
-- "TOBEDONE"
+- "Demonstrate examples of accessing ROOT files remotely"
+- "To compare and contrast using standard ROOT approaches and newer ROOT objects like RDataFrame"
 keypoints:
-- "TOBEDONE"
+- "Making use of RDataFrame can speed up your analysis"
 ---
 
 # Analyzying the dimuon samples

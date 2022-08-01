@@ -10,8 +10,19 @@ keypoints:
 - "Docker can reduce the overhead in setting up a ROOT environment."
 ---
 
-The first thing you will want to do is start your ROOT Docker container.
-Ideally, you have already downloaded it and tested it out when you 
+# Setting up your environment
+
+## Using a local environment
+
+If you already have an environment set up locally on your computer that has ROOT version 6 or higher, 
+you should be able to run these exercises without any additional changes.
+
+## Using Docker
+
+If you do not have a completely local installation of ROOT, you are recommended to use Docker, as per
+the pre-exercises and previous lessons. 
+
+Ideally, you have already downloaded Docker and tested it out when you 
 completed the [Docker pre-exercise](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/)
 for this workshop. 
 
@@ -22,7 +33,7 @@ You will want to scroll down to
 **ROOT container**. Please make sure you have gone through that lesson, as we will be following
 most of the instructions about how to launch the container, with some minimal modifications. 
 
-## Create a local directory to store your work
+### Create a local directory to store your work
 
 Before you start up the Docker container, create a local directory where we will store
 files. Let's call it `cms_open_data_run1`. If you were on Linux or in a Mac terminal, 
@@ -33,7 +44,7 @@ mkdir cms_open_data_run1
 ~~~
 {: .language-bash}
 
-## Launch Docker
+### Launch Docker
 
 We'll follow the instructions from the previous lesson on Docker except that
 * We will call this new instance of the container `my_run1`
