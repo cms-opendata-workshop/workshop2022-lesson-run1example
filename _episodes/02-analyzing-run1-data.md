@@ -81,6 +81,14 @@ xrdcp root://eospublic.cern.ch//eos/opendata/cms/upload/NanoAODRun1/01-Jul-22/Ru
 
 The file is about 1.4 Gb, but should take less than a minute to download.
 
+> ## `xrdcp` alternative
+> If `xrdcp` is not running/working, you can also download this file with this command
+> ~~~
+> curl https://opendata.cern.ch/record/6004/files/assets/cms/upload/NanoAODRun1/01-Jul-22/Run2012B_DoubleMuParked/01-Jul-22Run2012B_DoubleMuParked/03C5684F-8BAF-4312-8235-2B0039F2FB93.root --output 03C5684F-8BAF-4312-8235-2B0039F2FB93.root
+> ~~~
+> {: .language-bash}
+{: .callout}
+
 Once it it is downloaded, you can process this one file by running `dimuonSpectrum2012_eospublic_test.C` in ROOT. 
 To do so, you will launch ROOT with the name of the script as an argument. 
 
