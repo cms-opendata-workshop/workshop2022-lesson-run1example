@@ -67,11 +67,22 @@ on your *local* system by looking in the `cms_open_data_run1` directory that you
 ### Zeroth example 
 
 The first thing we will do is run a very simple ROOT script that loads in a single, relatively small
-file from CERN and produces a plot of the dimuon spectrum. Because it is a single file, 
+file from your laptop and produces a plot of the dimuon spectrum. Because it is a single file, 
 we will not have the same amount of data in this plot as later examples, but you can 
 use this to check your connection and X windows forwarding (e.g. does the plot pop up?).
 
-To run simple example, you will launch ROOT with the name of the script as an argument. 
+First, let's download the file, using one of the [XRootD](https://xrootd.slac.stanford.edu/) utilities, 
+`xrdcp` that allows us to download files. 
+
+~~~
+xrdcp root://eospublic.cern.ch//eos/opendata/cms/upload/NanoAODRun1/01-Jul-22/Run2012B_DoubleMuParked/01-Jul-22Run2012B_DoubleMuParked/03C5684F-8BAF-4312-8235-2B0039F2FB93.root .
+~~~
+{: .language-bash}
+
+The file is about 1.4 Gb, but should take less than a minute to download.
+
+Once it it is downloaded, you can process this one file by running `dimuonSpectrum2012_eospublic_test.C` in ROOT. 
+To do so, you will launch ROOT with the name of the script as an argument. 
 
 ~~~
 root -l dimuonSpectrum2012_eospublic_test.C
@@ -92,44 +103,8 @@ If you are having issues with X11 forwarding, the script should still create a f
 `dimuonSpectrum2012_C_eospublic.pdf` in the `cms_open_data_run1` directory you made, 
 and you can view it there. 
 
-> ## Running over more 2012 data. 
-> If you wanted to run this same script over more of the
-> 2012 data, you would want to edit this section of `dimuonSpectrum2012_eospublic_test.C`.
-> 
-> ~~~
-> 
->     // Create dataframe from NanoAODEun1 files on eospublic
->     // Larger files - run over this to see the full statistics
->     //ROOT::RDataFrame df("Events", {"root://eospublic.cern.ch//eos/opendata/cms/upload/NanoAODRun1/01-Jul-22/Run2012B_DoubleMuParked_merged.root", "root://eospublic.cern.ch//eos/opendata/cms/upload/NanoAODRun1/01-Jul-22/Run2012C_DoubleMuParked_merged.root"});
-> 
->     // Smaller file - use this for testing your connection as it should take less than 1 minute to run
->     ROOT::RDataFrame df("Events", "root://eospublic.cern.ch//eos/opendata/cms/upload/NanoAODRun1/01-Jul-22/Run2012B_DoubleMuParked/01-Jul-22Run2012B_DoubleMuParked/03C5684F-8BAF-4312-8235-2B0039F2FB93.root");
->     // RDataFrame interfaces to TTree and TChain. The "Events" part makes sure that within the root file, the data frame is taken from within the "Events" folder.
-> 
-> ~~~
-> {: .language-cpp}
-> 
-> When you download the script, the line `ROOT::RDataFrame df("Events", "root://eospublic.cern.ch//eos/opendata/cms/upload/NanoAODRun1/01-Jul-22/Run2012B_DoubleMuParked/01-Jul-22Run2012B_DoubleMuParked/03C5684F-8BAF-4312-8235-2B0039F2FB93.root");` is uncommented, and that defines the single file that the script runs over. 
-> 
-> Just above it, you will see the line `//ROOT::RDataFrame df("Events", {"root://eospublic.cern.ch//eos/opendata/cms/upload/NanoAODRun1/01-Jul-22/Run2012B_DoubleMuParked_merged.root", "root://eospublic.cern.ch//eos/opendata/cms/upload/NanoAODRun1/01-Jul-22/Run2012C_DoubleMuParked_merged.root"});`. This tells the script to read in the two files (`../Run2012B_DoubleMuParked_merged.root` and `../Run2012C_DoubleMuParked_merged.root`), but this line is *commented* due to the double slashes `//` at the beginning of the line. 
-> If you want to run over these larger files on your own time, you can uncomment that line (delete the two slashes) and comment out the other line. So after
-> making those edits, this part of the script would look like this. 
-> 
-> ~~~
-> 
->     // Create dataframe from NanoAODEun1 files on eospublic
->     // Larger files - run over this to see the full statistics
->     ROOT::RDataFrame df("Events", {"root://eospublic.cern.ch//eos/opendata/cms/upload/NanoAODRun1/01-Jul-22/Run2012B_DoubleMuParked_merged.root", "root://eospublic.cern.ch//eos/opendata/cms/upload/NanoAODRun1/01-Jul-22/Run2012C_DoubleMuParked_merged.root"});
-> 
->     // Smaller file - use this for testing your connection as it should take less than 1 minute to run
->     //ROOT::RDataFrame df("Events", "root://eospublic.cern.ch//eos/opendata/cms/upload/NanoAODRun1/01-Jul-22/Run2012B_DoubleMuParked/01-Jul-22Run2012B_DoubleMuParked/03C5684F-8BAF-4312-8235-2B0039F2FB93.root");
->     // RDataFrame interfaces to TTree and TChain. The "Events" part makes sure that within the root file, the data frame is taken from within the "Events" folder.
-> 
-> ~~~
-> {: .language-cpp}
-{: .callout}
-
-In the following sections, the scripts are written so as to run over larger files. Depending on your connection, 
+In the following sections, the scripts are written so as to run over larger files that you 
+access remotely. Depending on your connection, 
 it may take longer than the time alotted for this activity during the workshop, in which case you
 are encouraged to follow along with the instructor and run these on your own time, if you so choose. 
 
