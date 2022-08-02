@@ -16,7 +16,8 @@ keypoints:
 # Analyzying the dimuon samples
 
 This lesson will be primarily following the material found [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/NanoAODRun1Examples)
-about using the NanoAOD format in an analysis of the dimuon samples.
+about using the [NanoAOD for Run 1](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookNanoAODRun1)
+format in an analysis of the dimuon samples.
 
 > ## Potential pitfalls!
 > We'll be running over some larger ROOT files in this lesson and for some of you, memory issues may cause some errors
